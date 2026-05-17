@@ -14,11 +14,11 @@ public class RecaptchaVerifier {
     private final RecaptchaService service;
 
     RecaptchaVerifier() {
-        if (Config.IS_DEV_SERVER) {
-            service = new EmptyRecaptchaService();
-        } else {
-            service = new GoogleRecaptchaService(Config.CAPTCHA_SECRET_KEY);
-        }
+        if (!Config.RECAPTCHA_ENABLED) {
+         service = new EmptyRecaptchaService();
+       } else {
+         service = new GoogleRecaptchaService(Config.CAPTCHA_SECRET_KEY);
+      }
     }
 
     public static RecaptchaVerifier inst() {
