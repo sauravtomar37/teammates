@@ -145,6 +145,8 @@ public final class Config {
 
     /** Value of {@code app.taskqueue.active} (default {@code true} if unset). */
     public static final boolean TASKQUEUE_ACTIVE;
+    /** Value of {@code app.recaptcha.enabled} (default {@code true} if unset). */
+    public static final boolean RECAPTCHA_ENABLED;
 
     /**
      * Value of {@code app.email.allow.sending.to.test.domain} (default {@code false} if unset).
@@ -230,6 +232,9 @@ public final class Config {
                 getProperty(properties, devProperties, "app.enable.devserver.login", "false"));
         TASKQUEUE_ACTIVE = Boolean.parseBoolean(
                 getProperty(properties, devProperties, "app.taskqueue.active", "true"));
+        RECAPTCHA_ENABLED = Boolean.parseBoolean(
+        getProperty(properties, devProperties,
+                "app.recaptcha.enabled", "true"));
         EMAIL_ALLOW_SENDING_TO_TEST_DOMAIN = Boolean.parseBoolean(
                 getProperty(properties, devProperties, "app.email.allow.sending.to.test.domain", "false"));
         TASKQUEUE_SERVICE = getProperty(properties, devProperties, "app.taskqueue.service",
